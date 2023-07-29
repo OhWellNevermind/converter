@@ -16,9 +16,15 @@ class Converter {
     console.log(this.value, this.from, this.to);
     console.log(typeof this.to.unit);
     if (this.to.unit == "m") {
-      return (this.value * this.from.toMeter).toFixed(4);
+      return JSON.stringify({
+        unit: this.to.unit,
+        value: (this.value * this.from.toMeter).toFixed(4),
+      });
     }
-    return ((this.value * this.from.toMeter) / this.to.toMeter).toFixed(4);
+    return JSON.stringify({
+      unit: this.to.unit,
+      value: ((this.value * this.from.toMeter) / this.to.toMeter).toFixed(4),
+    });
   }
 }
 
@@ -45,7 +51,8 @@ refs.input.addEventListener("input", (event) => {
     },
     convertTo: to,
   });
-  refs.output.value = convertTo(jsonData);
+  const value = JSON.parse(convertTo(jsonData));
+  refs.output.value = value.value;
 });
 
 function convertTo(jsonConvertData) {
