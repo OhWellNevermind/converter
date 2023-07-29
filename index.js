@@ -1,6 +1,6 @@
 class Units {
   m = { unit: "m", toMeter: 1 };
-  cm = { unit: "cm", toMeter: 100 };
+  cm = { unit: "cm", toMeter: 0.01 };
   in = { unit: "in", toMeter: 0.0254 };
   ft = { unit: "ft", toMeter: 0.3048 };
 }
@@ -14,8 +14,9 @@ class Converter {
 
   convert() {
     console.log(this.value, this.from, this.to);
-    if (this.from.unit == "m") {
-      return (this.value * this.to.toMeter).toFixed(4);
+    console.log(typeof this.to.unit);
+    if (this.to.unit == "m") {
+      return (this.value * this.from.toMeter).toFixed(4);
     }
     return ((this.value * this.from.toMeter) / this.to.toMeter).toFixed(4);
   }
