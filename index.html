@@ -7,21 +7,34 @@
   </head>
   <body>
     <main>
-      <select class="convert-from" name="" id="">
-        <option value="m">Meters</option>
-        <option value="cm">Cantimeters</option>
-        <option value="in">Inches</option>
-        <option value="ft">Feets</option>
-      </select>
-      <input class="input" type="input" />
-      <select class="convert-to" name="" id="">
-        <option value="m">Meters</option>
-        <option value="cm">Cantimeters</option>
-        <option value="in">Inches</option>
-        <option value="ft">Feets</option>
-      </select>
-      <input class="output" type="text" disabled />
+<div class="converter-container">
+        <select class="convert-from" name="" id="">
+          <option value="m">Meters</option>
+          <option value="cm">Cantimeters</option>
+          <option value="in">Inches</option>
+          <option value="ft">Feets</option>
+        </select>
+        <input class="input" type="input" />
+        <select class="convert-to" name="" id="">
+          <option value="m">Meters</option>
+          <option value="cm">Cantimeters</option>
+          <option value="in">Inches</option>
+          <option value="ft">Feets</option>
+        </select>
+        <input class="output" type="text" disabled />
+</div>
+      <div>
+        <form class="add-form" action="">
+          <label for="unit">Unit</label>
+          <input class="unit" name="unit" type="text" />
+          <label for="unitFull">Unit Full Name</label>
+          <input type="text" name="unitFull" class="unit-full-name">
+          <label for="toMeters">Convert To Meters</label>
+          <input class="toMeters" name="toMeters" type="text">
+          <button type="submit">Add unit</button>
+        </form>
+      </div>
     </main>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
